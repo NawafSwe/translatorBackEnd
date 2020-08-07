@@ -11,13 +11,13 @@ const translateController = async (body) => {
     req.form(request.data);
 
     //starting the request
-  const response =  await req.end(async (res) => {
+    const response = await req.end(async (res) => {
       if (res.error) console.log(`error happens while unirest performing`);
       console.log(await res.body.data.translations);
       translations.push(...(await res.body.data.translations));
       return translations;
     });
-   
+
     return translations;
   } catch (error) {
     console.log(
